@@ -35,9 +35,10 @@ function SettingsScreen() {
      placeholder="Enter your name"
      value={name}
      onChangeText={text => setName(text)}
+     maxLength={6}
      />
      <Text style={{marginTop: 10, fontSize: 17}}>Your name is {name}</Text>
-     <Text style={{marginTop: 10, fontSize: 17}}>Number is {number}</Text>
+     <Text style={{marginTop: 10, fontSize: 17, fontStyle: 'italic'}}>Number is {number}</Text>
      <View style={{height: 40, width: 250, marginTop: 10,}}> 
 
      <Button title="Submit Form" onPress={submit}></Button>
