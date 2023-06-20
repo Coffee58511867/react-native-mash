@@ -10,7 +10,7 @@ import SettingScreen from "./Settings";
 
 const TabNavigator = createMaterialBottomTabNavigator(
 {
-	Home2: {
+	Home: {
 	screen: HomeScreen,
 	navigationOptions: {
 		tabBarLabel: "Home",
@@ -52,7 +52,7 @@ const TabNavigator = createMaterialBottomTabNavigator(
 },
 {
 	initialRouteName: "Home",
-	barStyle: { backgroundColor: "#006600" },
+	barStyle: { backgroundColor: "#006600" , marginLeft: 10, marginRight: 10, },
 }
 );
 

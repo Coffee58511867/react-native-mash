@@ -6,6 +6,8 @@ import Register from "./components/Register";
 import DetailsPage from "./components/DetailsPage";
 import Tabs from "./components/Tabs";
 import BottomNav from "./screens/BottomNav";
+import TabViewExample from "./components/TopTab";
+import TopBar from "./components/TopTab2";
 
 function HomeScreen({ navigation }) {
   return (
@@ -22,8 +24,18 @@ function HomeScreen({ navigation }) {
         </Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.btn}>
-        <Text style={styles.btnTex} onPress={() => navigation.push("bottom")}>
+        <Text style={styles.btnTex} onPress={() => navigation.push("Dashboard")}>
           Bottom Tabs
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.btn}>
+        <Text style={styles.btnTex} onPress={() => navigation.push("Admin Dashboard")}>
+          Top Tabs
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.btn}>
+        <Text style={styles.btnTex} onPress={() => navigation.push("My Dashboard")}>
+          Top Tab 2
         </Text>
       </TouchableOpacity>
     </View>
@@ -61,7 +73,9 @@ function App() {
         component={Register} />
         <Stack.Screen name="Details Page" component={DetailsPage} />
         <Stack.Screen name="Tabs" component={Tabs} />
-        <Stack.Screen name="bottom" component={BottomNav} />
+        <Stack.Screen name="Dashboard" component={BottomNav} />
+        <Stack.Screen name="Admin Dashboard" component={TabViewExample} />
+        <Stack.Screen name="My Dashboard" component={TopBar} />
       </Stack.Navigator>
     </NavigationContainer>
   );
