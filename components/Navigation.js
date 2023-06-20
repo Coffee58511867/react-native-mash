@@ -1,8 +1,7 @@
 import * as React from "react";
 import { View, Text, Button } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import Register from "./components/Register";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 function HomeScreen({ navigation }) {
   return (
@@ -11,10 +10,6 @@ function HomeScreen({ navigation }) {
       <Button
         title="Go to Details"
         onPress={() => navigation.navigate("Details")}
-      />
-      <Button
-        title="Register"
-        onPress={() => navigation.navigate("Create an Account")}
       />
     </View>
   );
@@ -38,18 +33,17 @@ function DetailsScreen({ navigation }) {
   );
 }
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
-function App() {
+function Nav() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Details" component={DetailsScreen} />
-        <Stack.Screen name="Create an Account" component={Register} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-export default App;
+export default Nav;
