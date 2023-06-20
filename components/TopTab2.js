@@ -1,5 +1,12 @@
 import * as React from "react";
-import { Text, View, FlatList, TextInput, StyleSheet, Button } from "react-native";
+import {
+  Text,
+  View,
+  FlatList,
+  TextInput,
+  StyleSheet,
+  Button,
+} from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 
 function HomeScreen() {
@@ -10,7 +17,7 @@ function HomeScreen() {
     { key: "4", name: "Item1" },
   ]);
   return (
-    <View style={{ flex: 1}}>
+    <View style={{ flex: 1 }}>
       <FlatList
         data={Items}
         renderItem={({ item }) => (
@@ -22,48 +29,51 @@ function HomeScreen() {
 }
 
 function SettingsScreen() {
-    const [name , setName] = React.useState('');
-    const [number, setNumber] = React.useState(5);
+  const [name, setName] = React.useState("");
+  const [number, setNumber] = React.useState(5);
+  const [checked , setChecked] = React.useState(false);
 
-    const submit = () => {
-     setNumber(number + 5);
-    }  
+  const submit = () => {
+    setNumber(number + 5);
+    setChecked(true);
+  };
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-     <TextInput 
-     style={styles.input}
-     placeholder="Enter your name"
-     value={name}
-     onChangeText={text => setName(text)}
-     maxLength={6}
-     />
-     <Text style={{marginTop: 10, fontSize: 17}}>Your name is {name}</Text>
-     <Text style={{marginTop: 10, fontSize: 17, fontStyle: 'italic'}}>Number is {number}</Text>
-     <Text style={styles.baseText}>
-      I am bold
-      <Text style={styles.innerText}> and red</Text>
-    </Text>
-     <View style={{height: 40, width: 250, marginTop: 10,}}> 
-
-     <Button title="Submit Form" onPress={submit}></Button>
-     </View>
+      <TextInput
+        style={styles.input}
+        placeholder="Enter your name"
+        value={name}
+        onChangeText={(text) => setName(text)}
+        maxLength={6}
+      />
+      <Text style={{ marginTop: 10, fontSize: 17 }}>Your name is {name}</Text>
+      <Text style={{ marginTop: 10, fontSize: 17, fontStyle: "italic" }}>
+        Number is {number}
+      </Text>
+      <Text style={styles.baseText}>
+        I am bold
+        <Text style={styles.innerText}> and red</Text>
+      </Text>
+      <Text>{checked ? "Button is Clicked" : 'Button not Clicked'}</Text>
+      <View style={{ height: 40, width: 250, marginTop: 10 }}>
+        <Button title="Submit Form" onPress={submit}></Button>
+      </View>
     </View>
   );
 }
 const styles = StyleSheet.create({
-    input:
-    {
-        borderBottomWidth: 1,
-        height: 40,
-        width: 300,
-    },
-    baseText: {
-        fontWeight: 'bold',
-      },
-      innerText: {
-        color: 'red',
-      },
-})
+  input: {
+    borderBottomWidth: 1,
+    height: 40,
+    width: 300,
+  },
+  baseText: {
+    fontWeight: "bold",
+  },
+  innerText: {
+    color: "red",
+  },
+});
 function ProfileScreen() {
   return (
     <View
