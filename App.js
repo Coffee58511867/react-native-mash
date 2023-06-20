@@ -20,6 +20,11 @@ function HomeScreen({ navigation }) {
           Tabs
         </Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.btn}>
+        <Text style={styles.btnTex} onPress={() => navigation.push("Tabs")}>
+          Bottom Tabs
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -50,7 +55,9 @@ function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Details" component={DetailsScreen} />
-        <Stack.Screen name="Create an Account" component={Register} />
+        <Stack.Screen name="Create an Account" 
+        
+        component={Register} />
         <Stack.Screen name="Details Page" component={DetailsPage} />
         <Stack.Screen name="Tabs" component={Tabs} />
       </Stack.Navigator>
