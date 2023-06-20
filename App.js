@@ -5,6 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Register from "./components/Register";
 import DetailsPage from "./components/DetailsPage";
 import Tabs from "./components/Tabs";
+import BottomNav from "./screens/BottomNav";
 
 function HomeScreen({ navigation }) {
   return (
@@ -21,7 +22,7 @@ function HomeScreen({ navigation }) {
         </Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.btn}>
-        <Text style={styles.btnTex} onPress={() => navigation.push("Tabs")}>
+        <Text style={styles.btnTex} onPress={() => navigation.push("bottom")}>
           Bottom Tabs
         </Text>
       </TouchableOpacity>
@@ -60,6 +61,7 @@ function App() {
         component={Register} />
         <Stack.Screen name="Details Page" component={DetailsPage} />
         <Stack.Screen name="Tabs" component={Tabs} />
+        <Stack.Screen name="bottom" component={BottomNav} />
       </Stack.Navigator>
     </NavigationContainer>
   );
