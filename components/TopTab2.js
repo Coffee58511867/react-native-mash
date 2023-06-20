@@ -39,6 +39,10 @@ function SettingsScreen() {
      />
      <Text style={{marginTop: 10, fontSize: 17}}>Your name is {name}</Text>
      <Text style={{marginTop: 10, fontSize: 17, fontStyle: 'italic'}}>Number is {number}</Text>
+     <Text style={styles.baseText}>
+      I am bold
+      <Text style={styles.innerText}> and red</Text>
+    </Text>
      <View style={{height: 40, width: 250, marginTop: 10,}}> 
 
      <Button title="Submit Form" onPress={submit}></Button>
@@ -52,7 +56,13 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         height: 40,
         width: 300,
-    }
+    },
+    baseText: {
+        fontWeight: 'bold',
+      },
+      innerText: {
+        color: 'red',
+      },
 })
 function ProfileScreen() {
   return (
