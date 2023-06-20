@@ -1,22 +1,25 @@
 import * as React from "react";
-import { View, Text, Button } from "react-native";
+import { View, Text, Button , StyleSheet, TouchableOpacity} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Register from "./components/Register";
 import DetailsPage from "./components/DetailsPage";
+import Tabs from "./components/Tabs";
 
 function HomeScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={styles.container}>
       <Text>Home Screen</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate("Details")}
-      />
-      <Button
-        title="Register"
-        onPress={() => navigation.navigate("Create an Account")}
-      />
+      <TouchableOpacity style={styles.btn}>
+        <Text style={styles.btnTex} onPress={() => navigation.push("Create an Account")}>
+          Create an Account
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.btn}>
+        <Text style={styles.btnTex} onPress={() => navigation.push("Tabs")}>
+          Tabs
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -49,9 +52,37 @@ function App() {
         <Stack.Screen name="Details" component={DetailsScreen} />
         <Stack.Screen name="Create an Account" component={Register} />
         <Stack.Screen name="Details Page" component={DetailsPage} />
+        <Stack.Screen name="Tabs" component={Tabs} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  text: {
+    fontSize: 30,
+    fontWeight: 800,
+    marginBottom: 40,
+  },
+  btn: {
+    height: 40,
+    marginTop: 10,
+    backgroundColor: "darkblue",
+    width: 250,
+    borderRadius: 6,
+  },
+  btnTex: {
+    color: "white",
+    textAlign: "center",
+    marginTop: 9,
+    fontSize: 16,
+  },
+
+});
 
 export default App;
