@@ -8,19 +8,28 @@ import {
 } from "react-native";
 
 function Register({ navigation }) {
-
-    const [username, setUsername] = useState('');
-    const [phone, setPhone] = useState('');
-    const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Create an Account</Text>
-      <TextInput placeholder="Username" style={styles.input} />
+      <TextInput
+        placeholder="Username"
+        style={styles.input}
+        value={username}
+        onChangeText={(text) => setUsername(text)}
+      />
       <TextInput placeholder="Phone Number" style={styles.input} />
       <TextInput placeholder="Password" style={styles.input} />
       <TouchableOpacity style={styles.btn}>
         <Text style={styles.btnTex} onPress={() => navigation.push("Details")}>
           Create an Account
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.btn}>
+        <Text style={styles.btnTex} onPress={() => navigation.push("Details Page")}>
+          Go to Details Page
         </Text>
       </TouchableOpacity>
     </View>
@@ -39,7 +48,7 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   btn: {
-    height: 45,
+    height: 40,
     marginTop: 10,
     backgroundColor: "blue",
     width: 250,
@@ -48,8 +57,8 @@ const styles = StyleSheet.create({
   btnTex: {
     color: "white",
     textAlign: "center",
-    marginTop: 8,
-    fontSize: 20,
+    marginTop: 9,
+    fontSize: 16,
   },
   input: {
     width: 300,
